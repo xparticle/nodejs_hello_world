@@ -1,6 +1,6 @@
 var http = require("http");
 var fs=require('fs');
-var counter=0;
+    var counter=0;
 
 http.createServer(function (request, response) {
 
@@ -35,7 +35,7 @@ else
 
 }
 
-}).listen(80);
+}).listen(process.env.PORT);
 
 // Console will print the message
-console.log('Server running at http://127.0.0.1:80/');
+console.log('Server running at http://127.0.0.1:'+process.env.PORT+'80/');

@@ -9,11 +9,14 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 RUN npm install
+RUN npm install pm2 -g
 # If you are building your code for production
 # RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
 
-EXPOSE 8081
-CMD [ "npm", "start" ]
+EXPOSE 2000
+EXPOSE 3000
+EXPOSE 4000
+CMD [ "pm2", "start", "ecosystem.config.json", "--no-daemon" ]
